@@ -149,17 +149,17 @@ public class Jotto {
         int count = 0;
 
         Set<Integer> letters = new HashSet<>();
+        Set<Integer> letters2 = new HashSet<>();
 
         for (int i =0;i < WORD_SIZE; i++)
         {
             int current_char = wordGuess.charAt(i);
             letters.add(current_char);
+            letters2.add((int)currentWord.charAt(i));
         }
 
-        for (int i =0;i < WORD_SIZE; i++)
-        {
-            int current_char = currentWord.charAt(i);
-            if (letters.contains(current_char))
+        for (Integer i : letters2){
+            if (letters.contains(i))
                 count++;
         }
 
