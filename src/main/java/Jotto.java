@@ -107,6 +107,9 @@ public class Jotto {
     }
 
     public ArrayList<String> showPlayerGuesses() throws IOException{
+
+        if (playerGuesses.isEmpty()) return playerGuesses;
+
        Scanner input = new Scanner(System.in);
 
        System.out.println("Current player guesses:");
@@ -144,7 +147,10 @@ public class Jotto {
     }
 
     public int getLetterCount(String wordGuess){
-        if (wordGuess.equals(currentWord)) return 5;
+        wordGuess = wordGuess.toLowerCase();
+        currentWord = currentWord.toLowerCase();
+
+        if (wordGuess.equalsIgnoreCase(currentWord)) return 5;
 
         int count = 0;
 
@@ -289,7 +295,7 @@ public class Jotto {
 
     public String showPlayedWords(){
         if (playWords.isEmpty())
-            return "No words have been played.\n";
+            return "No words have been played.";
 
         StringBuilder tmp = new StringBuilder("Current list of played words:\n");
 

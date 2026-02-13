@@ -131,7 +131,7 @@ class JottoTest {
   }
 
   @Test
-  void showPlayerGuesses() {
+  void showPlayerGuesses() throws IOException {
     assertTrue(jotto.showPlayerGuesses().isEmpty());
     Random random = new Random();
     String wordToGuess = GOOD_WORDS.get(random.nextInt(GOOD_WORDS.size()));
